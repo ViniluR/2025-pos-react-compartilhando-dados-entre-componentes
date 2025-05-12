@@ -8,7 +8,7 @@ const SubTitulo = () => (
 
 const Cabecalho = () => {
 	return (
-		<div className="text-center">
+		<div className="text-center p-5">
 			<Titulo />
 			<SubTitulo />
 		</div>

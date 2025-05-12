@@ -4,7 +4,7 @@ import type React from "react";
 
 import { useEffect, useState } from "react";
 import dados, { TarefaInterface } from "@/data";
-import Cabecalho from "@/componentes/Cabecalhot";
+import Cabecalho from "@/componentes/Cabecalho.tsx";
 
 interface TarefaProps {
 	titulo: string;
@@ -14,10 +14,10 @@ interface TarefaProps {
 const Tarefa: React.FC<TarefaProps> = ({ titulo, concluido }) => {
 	const [estaConcluido, setEstaConcluido] = useState(concluido);
 
-	const classeCard = `p-3 mb-3 rounded-lg shadow-md hover:cursor-pointer hover:border ${
+	const classeCard = `p-3 mb-1 rounded-lg shadow-md hover:cursor-pointer hover:border ${
 		estaConcluido
-			? "bg-gray-800 hover:border-gray-800"
-			: "bg-gray-400 hover:border-gray-400"
+			? "bg-green-700 hover:bg-green-800 hover:border-none"
+			: "bg-gray-400 hover:bg-gray-500 hover:border-none"
 	}`;
 
 	const classeCorDoTexto = estaConcluido ? "text-amber-50" : "";
@@ -43,7 +43,7 @@ interface TareafasProps {
 
 const Tarefas: React.FC<TareafasProps> = ({ dados }) => {
 	return (
-		<div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+		<div className="grid grid-cols-1 md:grid-cols-2 gap-8">
 			{dados.map((tarefa) => (
 				<Tarefa
 					key={tarefa.id}
