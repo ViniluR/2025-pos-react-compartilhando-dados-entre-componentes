@@ -76,7 +76,7 @@ const Home = () => {
 			<Cabecalho />
 
 			<div className="flex justify-end mb-4">
-        		<button onClick={() => setMostrarModal(true)} className="bg-blue-600 text-white px-4 py-2 rounded">
+        		<button onClick={() => setMostrarModal(true)} className="bg-pink-600 hover:cursor-pointer text-white px-10 py-2 rounded">
          				Nova Tarefa
        			</button>
         	</div>

@@ -1014,7 +1014,6 @@ const dados: Array<TarefaInterface> = [
 
 const carregar = (): Promise<TarefaInterface[]> => {
 	return new Promise((resolve, reject) => {
-		// const sucesso = Math.random() > 0.2; // 80% de chance de sucesso
 		const sucesso = true;
 
 		if (sucesso) {
