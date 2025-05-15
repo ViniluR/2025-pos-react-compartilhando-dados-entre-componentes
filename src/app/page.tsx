@@ -5,6 +5,7 @@ import type React from "react";
 import { useEffect, useState } from "react";
 import dados, { TarefaInterface } from "@/data";
 import Cabecalho from "@/componentes/Cabecalho.tsx";
+import ModalTarefa from "@/componentes/ModalTarefa";
 
 interface TarefaProps {
 	titulo: string;
@@ -55,13 +56,36 @@ const Tarefas: React.FC<TareafasProps> = ({ dados }) => {
 	);
 };
 
+
+
 const Home = () => {
 	const [tarefas, setTarefas] = useState<TarefaInterface[]>(dados);
+	const [mostrarModal, setMostrarModal] = useState(false);
+	const adicionarTarefa = (titulo: string) => {
+		const novaTarefa: TarefaInterface = {
+			id: tarefas.length + 1,
+			title: titulo,
+			completed: false,
+		};
+		setTarefas((prev) => [...prev, novaTarefa]);
+	};
+
 
 	return (
 		<div className="container mx-auto p-4">
 			<Cabecalho />
+
+			<div className="flex justify-end mb-4">
+        		<button onClick={() => setMostrarModal(true)} className="bg-blue-600 text-white px-4 py-2 rounded">
+         				Nova Tarefa
+       			</button>
+        	</div>
+
 			<Tarefas dados={tarefas} />
+
+			{mostrarModal && (
+       			<ModalTarefa onAdicionar={adicionarTarefa} onFechar={() => setMostrarModal(false)}/>
+     )}
 		</div>
 	);
 };
