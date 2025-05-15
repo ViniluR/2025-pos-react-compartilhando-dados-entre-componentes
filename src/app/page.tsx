@@ -56,7 +56,7 @@ const Tarefas: React.FC<TareafasProps> = ({ dados }) => {
 };
 
 const Home = () => {
-	const tarefas: TarefaInterface[] = dados;
+	const [tarefas, setTarefas] = useState<TarefaInterface[]>(dados);
 
 	return (
 		<div className="container mx-auto p-4">
